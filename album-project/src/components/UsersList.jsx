@@ -7,7 +7,7 @@ const UsersList = () => {
   const { data, isFetching, isError } = useFetchUsersQuery();
   const [addUser, results] = useAddUserMutation();
   // console.log(data, isFetching, isError);
-debugger
+
   const handleUSerAdd = () => {
     addUser();
   };
