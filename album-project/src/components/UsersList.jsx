@@ -1,11 +1,17 @@
 import React from "react";
-import { useFetchUsersQuery } from "../store/apis/usersApi";
-import { Skeleton } from "@mui/material";
+import { useFetchUsersQuery, useAddUserMutation } from "../store";
+import { Button, CircularProgress, Skeleton, debounce } from "@mui/material";
 import UserListItem from "./UserListItem";
 
 const UsersList = () => {
   const { data, isFetching, isError } = useFetchUsersQuery();
-  console.log(data, isFetching, isError);
+  const [addUser, results] = useAddUserMutation();
+  // console.log(data, isFetching, isError);
+debugger
+  const handleUSerAdd = () => {
+    addUser();
+  };
+
   let content;
   if (isFetching) {
     content = (
@@ -16,13 +22,27 @@ const UsersList = () => {
         height={1000}
       />
     );
-  }else if(isError){
-    content = <div>Hata var</div>
+  } else if (isError) {
+    content = <div>Hata var</div>;
+  } else {
+    content = data.map((user) => <UserListItem key={user.id} user={user} />);
   }
-  else{
-    content = data.map((user) => <UserListItem key={user.id} user={user}/>)
-  }
-  return <div>{content}</div>;
+  return (
+    <div>
+      <div className="topArrangement">
+        <h1 style={{ fontSize: "24px" }}>Members</h1>
+        <Button variant="outlined" onClick={handleUSerAdd}>
+          {results.isLoading ? (
+            <CircularProgress />
+          ) : (
+            <span>Add a Member+</span>
+          )}
+        </Button>
+      </div>
+
+      {content}
+    </div>
+  );
 };
 
 export default UsersList;
