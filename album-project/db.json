@@ -1,20 +1,16 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Sefa"
+      "name": "Elisa Bergstrom",
+      "id": 5
     },
     {
-      "id": 2,
-      "name": "Esra"
+      "name": "Johnathan West",
+      "id": 7
     },
     {
-      "name": "Meryem,",
-      "id": 3
-    },
-    {
-      "name": "Santiago Stoltenberg",
-      "id": 4
+      "name": "Colleen Hermann",
+      "id": 8
     }
   ]
 }
