@@ -12,5 +12,6 @@
       "name": "Colleen Hermann",
       "id": 8
     }
-  ]
+  ],
+  "albums": [{ "userId": 1, "title": "Candy", "id": 15 }]
 }
